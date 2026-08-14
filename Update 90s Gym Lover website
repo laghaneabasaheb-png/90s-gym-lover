@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>90s GYM LOVER – 90s Workout Music Radio</title>
+
+<meta name="description" content="90s GYM LOVER - 90s Workout Music Radio">
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#080808;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+.top{
+  background:#090909;
+  color:#f5b916;
+  text-align:center;
+  padding:10px;
+  font-size:13px;
+  border-bottom:1px solid #8b6500;
+}
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#080808;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #8b6500;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+}
+
+.logo small{
+  display:block;
+  color:#fff;
+  font-size:13px;
+  letter-spacing:3px;
+}
+
+.menu a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:bold;
+}
+
+.hero{
+  min-height:650px;
+  padding:60px 5%;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1a?auto=format&fit=crop&w=1400&q=80");
+  background-size:cover;
+  background-position:center;
+}
+
+.kicker{
+  color:#f5b916;
+  font-weight:900;
+  letter-spacing:6px;
+  font-size:18px;
+}
+
+h1{
+  font-size:72px;
+  margin:15px 0;
+  line-height:.95;
+}
+
+h1 span{
+  display:block;
+  color:#fff;
+}
+
+.tag{
+  color:#ef3838;
+  font-size:28px;
+  font-weight:bold;
+  font-style:italic;
+}
+
+.intro{
+  font-size:21px;
+  line-height:1.7;
+  max-width:650px;
+}
+
+.player{
+  margin-top:35px;
+  max-width:620px;
+  padding:30px;
+  border:2px solid #a77a00;
+  border-radius:28px;
+  background:rgba(10,10,10,.78);
+}
+
+.now{
+  color:#f5b916;
+  font-size:20px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.song{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  margin-top:25px;
+}
+
+.cover{
+  width:170px;
+  height:170px;
+  border-radius:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  font-size:25px;
+  font-weight:bold;
+  background:linear-gradient(135deg,#a92717,#f5b916);
+}
+
+.song h2{
+  margin:0;
+  font-size:30px;
+}
+
+.song p{
+  color:#aaa;
+  font-size:18px;
+}
+
+.progress{
+  width:100%;
+  margin-top:25px;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:45px;
+  margin-top:25px;
+}
+
+.control{
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.play{
+  width:85px;
+  height:85px;
+  border-radius:50%;
+  border:0;
+  background:#f5b916;
+  color:#000;
+  font-size:35px;
+  cursor:pointer;
+}
+
+.listeners{
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid #6e5100;
+  color:#f5b916;
+  font-size:18px;
+}
+
+section{
+  padding:60px 5%;
+  text-align:center;
+}
+
+section h2{
+  color:#f5b916;
+  font-size:35px;
+}
+
+footer{
+  padding:30px;
+  text-align:center;
+  border-top:1px solid #5c4300;
+  color:#999;
+}
+
+@media(max-width:800px){
+
+  .menu{
+    display:none;
+  }
+
+  .hero{
+    padding:45px 5%;
+  }
+
+  h1{
+    font-size:58px;
+  }
+
+  .tag{
+    font-size:22px;
+  }
+
+  .intro{
+    font-size:18px;
+  }
+
+  .song{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .cover{
+    width:150px;
+    height:150px;
+  }
+
+  .controls{
+    gap:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+🎵 90s HITS • 90s VIBES • PURE WORKOUT ENERGY 💪
+</div>
+
+<nav class="nav">
+  <div class="logo">
+    90s
+    <small>GYM LOVER</small>
+  </div>
+
+  <div class="menu">
+    <a href="#home">HOME</a>
+    <a href="#radio">RADIO</a>
+    <a href="#about">ABOUT</a>
+  </div>
+</nav>
+
+<main id="home">
+
+<section class="hero">
+
+<div>
+
+<div class="kicker">90s WORKOUT RADIO</div>
+
+<h1>
+90s
+<span>GYM LOVER</span>
+</h1>
+
+<div class="tag">
+Feel the 90s. Live the Gym.
+</div>
+
+<p class="intro">
+Gym करताना workout थांबवायचा नाही —
+फक्त song बदलायचा. 🎧💪
+</p>
+
+<div class="player" id="radio">
+
+<div class="now">
+● NOW PLAYING
+</div>
+
+<div class="song">
+
+<div class="cover">
+90s<br>
+WORKOUT<br>
+RADIO
+</div>
+
+<div>
+<h2>90s Workout Radio</h2>
+<p>Your 90s workout playlist</p>
+</div>
+
+</div>
+
+<input
+class="progress"
+type="range"
+min="0"
+max="100"
+value="0"
+id="progress"
+>
+
+<div class="controls">
+
+<button class="control" onclick="previousSong()">|◀◀</button>
+
+<button class="play" id="playBtn" onclick="togglePlay()">▶</button>
+
+<button class="control" onclick="nextSong()">▶▶|</button>
+
+</div>
+
+<div class="listeners">
+🎧 ONLINE LISTENERS <span id="listeners">1</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2>90s GYM LOVER</h2>
+
+<p>
+90s music lovers साठी खास workout radio.
+<br>
+Train hard. Listen loud. Feel the 90s. 💪🎧
+</p>
+
+</section>
+
+</main>
+
+<footer>
+© 2026 90s GYM LOVER • All Rights Reserved
+</footer>
+
+<script>
+
+let playing = false;
+
+function togglePlay(){
+
+  playing = !playing;
+
+  document.getElementById("playBtn").innerHTML =
+    playing ? "❚❚" : "▶";
+
+}
+
+function previousSong(){
+  alert("Previous song");
+}
+
+function nextSong(){
+  alert("Next song");
+}
+
+/* Demo listener number */
+setInterval(function(){
+
+  let number =
+    Math.floor(Math.random() * 20) + 1;
+
+  document.getElementById("listeners").innerText = number;
+
+},5000);
+
+</script>
+
+</body>
+</html>
