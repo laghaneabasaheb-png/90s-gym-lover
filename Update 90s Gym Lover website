@@ -1,32 +1,125 @@
-const songs = [
-  {
-    title: "Jooma Chumma De De",
-    artist: "Sudesh Bhosle, Kavita Krishnamurthy",
-    youtubeId: "ZcY9nx1v2sI"
-  },
-  {
-    title: "O O Jaane Jaana",
-    artist: "Kamaal Khan",
-    youtubeId: "GyU-glCZz3o"
-  },
-  {
-    title: "Tu Cheez Badi Hai Mast Mast",
-    artist: "Udit Narayan, Kavita Krishnamurthy",
-    youtubeId: "rqTzPBPq-N4"
-  },
-  {
-    title: "Chaiyya Chaiyya",
-    artist: "Sukhwinder Singh, Sapna Awasthi",
-    youtubeId: "bKUeswtQBVA"
-  },
-  {
-    title: "Ek Pal Ka Jeena",
-    artist: "Lucky Ali",
-    youtubeId: "aGbPyM6lzBs"
-  },
-  {
-    title: "Saat Samundar Paar",
-    artist: "Sadhana Sargam",
-    youtubeId: "LV7xRH_Og5U"
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90s GYM LOVER</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#070707;color:#fff;font-family:Arial,sans-serif;padding-bottom:78px}
+header{padding:14px 20px;background:#090909;border-bottom:1px solid #765600;position:sticky;top:0;z-index:5}
+.logo{font-size:28px;font-weight:900;color:#f5b916}.logo span{display:block;color:#fff;font-size:12px;letter-spacing:4px}
+.hero{padding:38px 20px;background:linear-gradient(90deg,#000d,#0008),url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1a?auto=format&fit=crop&w=1200&q=80") center/cover}
+.kicker{color:#f5b916;font-weight:bold;letter-spacing:4px}
+h1{font-size:55px;line-height:.9;margin:15px 0}h1 span{display:block;color:#fff}
+.tag{color:#ef3838;font-size:22px;font-weight:bold;font-style:italic}
+.card{max-width:760px;margin:28px auto 0;background:#080808e8;border:2px solid #967000;border-radius:22px;padding:18px}
+.now{color:#f5b916;font-weight:bold;letter-spacing:2px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;margin-top:15px;background:#000}
+.songtitle{font-size:24px;font-weight:bold;margin-top:15px}.artist{color:#999;margin-top:5px}
+.controls{display:flex;justify-content:center;align-items:center;gap:30px;margin:18px 0}
+button{border:0;cursor:pointer}.control{background:none;color:#fff;font-size:30px}.play{width:68px;height:68px;border-radius:50%;background:#f5b916;color:#000;font-size:25px}
+.volume{text-align:center}.volume input{width:180px}
+.playlist{max-width:760px;margin:35px auto;padding:0 20px}.playlist h2{color:#f5b916}
+.track{display:flex;gap:12px;align-items:center;padding:14px 8px;border-bottom:1px solid #292929;cursor:pointer}
+.track.active{background:#211c08;border-left:3px solid #f5b916}.num{width:30px;color:#f5b916}.info{flex:1}.name{font-weight:bold}.by{font-size:13px;color:#888;margin-top:4px}
+.bottom{position:fixed;bottom:0;left:0;right:0;height:76px;background:#0b0b0bf5;border-top:1px solid #765600;display:flex;align-items:center;padding:8px 12px;z-index:10}
+.bottominfo{flex:1;min-width:0}.bt{font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ba{font-size:12px;color:#888}
+.bp{width:50px;height:50px;border-radius:50%;background:#f5b916;color:#000;font-size:20px}
+@media(max-width:600px){h1{font-size:48px}.volume{display:none}}
+</style>
+</head>
+<body>
+
+<header><div class="logo">90s<span>GYM LOVER</span></div></header>
+
+<section class="hero">
+<div class="kicker">90s WORKOUT RADIO</div>
+<h1>90s<span>GYM LOVER</span></h1>
+<div class="tag">Feel the 90s. Live the Gym.</div>
+<p>Gym करताना workout थांबवायचा नाही — फक्त song बदलायचा. 🎧💪</p>
+
+<div class="card">
+<div class="now">● NOW PLAYING</div>
+<iframe id="player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+<div class="songtitle" id="title"></div>
+<div class="artist" id="artist"></div>
+
+<div class="controls">
+<button class="control" onclick="prev()">⏮</button>
+<button class="play" id="playBtn" onclick="toggle()">▶</button>
+<button class="control" onclick="next()">⏭</button>
+</div>
+
+<div class="volume">🔊 <input id="vol" type="range" min="0" max="100" value="100" oninput="setVolume(this.value)"></div>
+</div>
+</section>
+
+<section class="playlist">
+<h2>🔥 90s WORKOUT PLAYLIST</h2>
+<div id="playlist"></div>
+</section>
+
+<div class="bottom">
+<div class="bottominfo"><div class="bt" id="bottomTitle"></div><div class="ba" id="bottomArtist"></div></div>
+<button class="bp" id="bottomPlay" onclick="toggle()">▶</button>
+</div>
+
+<script>
+const songs=[
+{title:"Jooma Chumma De De",artist:"Sudesh Bhosle, Kavita Krishnamurthy",id:"ZcY9nx1v2sI"},
+{title:"O O Jaane Jaana",artist:"Kamaal Khan",id:"GyU-g1CZz3o"},
+{title:"Tu Cheez Badi Hai Mast Mast",artist:"Udit Narayan, Kavita Krishnamurthy",id:"rqTzPBPq-N4"},
+{title:"Chaiyya Chaiyya",artist:"Sukhwinder Singh, Sapna Awasthi",id:"bKUEswtQBVA"},
+{title:"Ek Pal Ka Jeena",artist:"Lucky Ali",id:"aGbPyM61zBs"},
+{title:"Saat Samundar Paar",artist:"Sadhana Sargam",id:"LV7xRH_0g5U"}
 ];
+
+let current=0,playing=false;
+
+function loadSong(n,autoplay=false){
+ current=(n+songs.length)%songs.length;
+ const s=songs[current];
+ document.getElementById("player").src=
+ "https://www.youtube.com/embed/"+s.id+"?rel=0&modestbranding=1&enablejsapi=1"+(autoplay?"&autoplay=1":"");
+ document.getElementById("title").textContent=s.title;
+ document.getElementById("artist").textContent=s.artist;
+ document.getElementById("bottomTitle").textContent=s.title;
+ document.getElementById("bottomArtist").textContent=s.artist;
+ playing=autoplay;
+ updateButtons();
+ document.querySelectorAll(".track").forEach((x,i)=>x.classList.toggle("active",i===current));
+}
+
+function toggle(){
+ const frame=document.getElementById("player");
+ frame.contentWindow.postMessage(JSON.stringify({
+  event:"command",func:playing?"pauseVideo":"playVideo",args:[]
+ }),"*");
+ playing=!playing;
+ updateButtons();
+}
+
+function updateButtons(){
+ document.getElementById("playBtn").textContent=playing?"❚❚":"▶";
+ document.getElementById("bottomPlay").textContent=playing?"❚❚":"▶";
+}
+function next(){loadSong(current+1,true)}
+function prev(){loadSong(current-1,true)}
+function setVolume(v){
+ document.getElementById("player").contentWindow.postMessage(JSON.stringify({
+  event:"command",func:"setVolume",args:[Number(v)]
+ }),"*");
+}
+
+document.getElementById("playlist").innerHTML=songs.map((s,i)=>`
+<div class="track" onclick="loadSong(${i},true)">
+<div class="num">${i+1}</div>
+<div class="info"><div class="name">${s.title}</div><div class="by">${s.artist}</div></div>
+<div>▶</div>
+</div>`).join("");
+
+loadSong(0,false);
+</script>
+</body>
+</html>
